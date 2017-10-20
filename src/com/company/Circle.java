@@ -15,6 +15,7 @@ public class Circle {
         this.x2 = x2;
         this.y2 = y2;
     }
+
     public double getSideX() {
         sideX = Math.abs(x1 - x2);
         return sideX;
@@ -25,24 +26,18 @@ public class Circle {
         return sideY;
     }
 
-    public double getSideZ() {
-        sideZ = Math.sqrt(getSideX() * getSideX() + getSideY() * getSideY());
-        return sideZ;
-    }
-
-
     public double getRad() {
-        rad = getSideZ();
+        rad = Math.sqrt(getSideX() * getSideX() + getSideY() * getSideY());
         return rad;
     }
 
     public double getPerim() {
-        perimetr = 2*PI*getRad();
+        perimetr = 2 * PI * getRad();
         return perimetr;
     }
 
     public double getArea() {
-        area = PI*(getRad()*getRad());
+        area = PI * (getRad() * getRad());
         return area;
     }
 }
