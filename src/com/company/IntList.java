@@ -38,9 +38,8 @@ public class IntList {
         Item item = head;
         int count = 0;
         if (head == null) {
-            head = item;
-            tail = item;
-            return;
+            head = item1;
+            tail = item1;
         } else {
             while (item.next != null) {
                 if (count != index) {
