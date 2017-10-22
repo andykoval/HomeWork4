@@ -35,32 +35,36 @@ public class LinkList {
         return (first == null);
     }
 
-    Link delite(int key){
+    Link findLink(int key) {
         Link current = first;
-        Link previous = first;
-        while (current.key!=key){
-            if(current.next == null){
-                first = null;
+        while (current.key != key) {
+            if (current.next == null) {
                 return null;
-            }
-            else {
-
+            } else {
+                current = current.next;
             }
         }
         return current;
     }
-    //  метод добавляет элемент в середину списка найдя элемент по значению и сдвигая его
-//    void addIndex(int dataI, double dataD) {
-//        Link temp = first;
-//        Link newLink = new Link(dataI, dataD);
-//        while (temp != null) {
-//            if (newLink == next) {
-//                newLink = temp
-//            }
-//            temp = temp.next;
-//        }
-//
-//    }
+
+    Link deliteLink(int key) {
+        Link current = first;
+        Link previous = first;
+        while (current.key != key) {
+            if (current.next == null) {
+                return null;
+            } else {
+                previous = current;
+                current = current.next;
+            }
+            if (current == first)
+                first = first.next;
+            else {
+                previous.next = current.next;
+            }
+        }
+        return current;
+    }
 
     public static void main(String[] args) {
         LinkList list = new LinkList();
@@ -74,5 +78,15 @@ public class LinkList {
             Link linkDel = list.deliteFirst();
             System.out.println("Удален элемент: " + linkDel.key + " " + linkDel.dataD);
         }
+        list.addFirst(2, 13.0);
+        list.addFirst(3, 5.13);
+        list.addFirst(9, 0.78);
+        list.addFirst(5, 13.3);
+        list.addFirst(88, 9.25);
+        list.displayList();
+        list.deliteLink(5);
+        list.displayList();
+        Link linkF = list.findLink(9);
+        System.out.println("Поиск элемента по ключу: " + "{" + linkF.key + " " + linkF.dataD + "}");
     }
 }
