@@ -3,7 +3,7 @@ package com.company;
 /**
  * Created by andy on 21.10.2017.
  */
-public class Form {
+public abstract class Form implements Shape{
     double x1, y1, x2, y2, sideX, sideY, sideZ, rad, perimetr, area;
     public final double PI = 3.14159265;
 

@@ -13,6 +13,31 @@ public class LinkList {
         first = newLink;
     }
 
+    double findLinkInd(int index) {
+        Link newLink = first;
+        int count = 0;
+        if (isEmpty())
+            return 0;
+        while (newLink != null) {
+            if (count++ == index)
+                return newLink.dataD;
+            newLink = newLink.next;
+        }
+        return 0;
+    }
+
+    int size() {
+        int count = 0;
+        if (isEmpty())
+            return 0;
+        Link newLink = first;
+        while (newLink != null) {
+            count++;
+            newLink = newLink.next;
+        }
+        return count;
+    }
+
     Link deliteFirst() {
         Link temp = first;
         first = temp.next;
@@ -65,6 +90,16 @@ public class LinkList {
         }
         return current;
     }
+    double getLast(){
+        Link newLink = first;
+        int count = 0;
+        if(isEmpty())
+            return 0;
+        while (count++!=(size()-1))
+            newLink = newLink.next;
+        return newLink.dataD;
+    }
+
 
     public static void main(String[] args) {
         LinkList list = new LinkList();
@@ -88,5 +123,8 @@ public class LinkList {
         list.displayList();
         Link linkF = list.findLink(9);
         System.out.println("Поиск элемента по ключу: " + "{" + linkF.key + " " + linkF.dataD + "}");
+        System.out.println("Размер списка: " + list.size());
+        System.out.println("Элемент по индексу: " + list.findLinkInd(3));
+        System.out.println(list.getLast());
     }
 }

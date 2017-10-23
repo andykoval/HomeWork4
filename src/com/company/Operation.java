@@ -6,10 +6,13 @@ package com.company;
 public class Operation {
     public int x,y,result;
 
-//    public Operation(int x, int y){
-//        this.x=x;
-//        this.y=y;
-//    }
+    public Operation(){
+    }
+
+    public Operation(int x, int y){
+        this.x=x;
+        this.y=y;
+    }
 
     int doOperation(int x, int y) {
         return result;
